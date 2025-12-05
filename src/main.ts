@@ -21,7 +21,8 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 const scene = getScene();
 
-const loadingManager = new LoadingManager(console.log, console.log, console.error)
+const loadingManager = new LoadingManager(console.log, undefined, console.error);
+loadingManager; // TS hack to shut it up
 
 addLights();
 

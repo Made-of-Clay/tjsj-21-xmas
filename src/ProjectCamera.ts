@@ -4,20 +4,6 @@ import { getGui } from './getGui';
 import { resizeRendererToDisplaySize } from './helpers/responsiveness';
 import GUI from 'lil-gui';
 
-export function addCamera(canvas: HTMLCanvasElement) {
-    const camera = new PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-    camera.position.set(2, 2, 5);
-
-    const cameraControls = new OrbitControls(camera, canvas);
-    cameraControls.enableDamping = true;
-    cameraControls.autoRotate = false;
-    cameraControls.update();
-
-    const gui = getGui();
-    // might add camera controls to set position better for each spot
-    const cameraFolder = gui.addFolder('Camera');
-}
-
 export class ProjectCamera {
     instance: PerspectiveCamera;
     #canvas: HTMLCanvasElement;
@@ -34,6 +20,9 @@ export class ProjectCamera {
         const gui = getGui();
         // might add camera controls to set position better for each spot
         this.#cameraFolder = gui.addFolder('Camera');
+        this.#cameraFolder.add(this.instance.position, 'x', -10, 10, 0.01);
+        this.#cameraFolder.add(this.instance.position, 'y', -10, 10, 0.01);
+        this.#cameraFolder.add(this.instance.position, 'z', -10, 10, 0.01);
     }
 
     tick(renderer: WebGLRenderer) {
