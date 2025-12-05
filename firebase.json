@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "site": "tjsj-cozy",
+    "site": "tjsj-xmas",
     "public": "dist",
     "ignore": [
       "firebase.json",
