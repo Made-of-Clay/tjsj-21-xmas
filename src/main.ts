@@ -12,6 +12,7 @@ import { addLights } from './addLights';
 import { addHelpers } from './addHelpers';
 import { getScene } from './getScene';
 import { ProjectCamera } from './ProjectCamera';
+import { addNavListeners } from './addNavListeners';
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -39,6 +40,8 @@ const camera = new ProjectCamera(canvas);
 scene.add(camera.instance);
 
 addHelpers();
+
+addNavListeners();
 
 // ===== 📈 STATS & CLOCK =====
 const stats = new Stats();

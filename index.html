@@ -4,9 +4,51 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Three.js + TypeScript + Vite</title>
+    <title>Three.js Journey Challenge #21 - Christmas</title>
+    <style>
+      nav {
+        background-color: #00000066;
+        box-shadow: 0 0 1rem #00ffb2aa inset;
+        border-radius: 0.5rem 0 0 0.5rem;
+        display: flex;
+        flex-direction: column;
+        font-size: 2rem;
+        line-height: 1.5;
+        padding: 0.25rem 0;
+        position: fixed;
+        right: 0;
+        top: 2rem;
+      }
+      a {
+        background-color: transparent;
+        color: rgb(158, 158, 255);
+        padding: 0.25rem 1.75rem;
+        text-decoration: none;
+        transition: background-color 0.3s;
+        outline: none;
+
+        &:hover {
+          background-color: #0006;
+        }
+        &:focus, &:focus-visible {
+          outline-color: #fff3;
+          background-color: #0009;
+        }
+      }
+      .lil-gui.lil-root { right: 450px; }
+    </style>
   </head>
   <body>
+    <nav>
+      <a href="#nativity">Nativity</a>
+      <a href="#angels">Angels</a>
+      <a href="#star">Star</a>
+      <a href="#gifts">Gifts</a>
+      <a href="#lights">Lights</a>
+      <a href="#wreath">Wreath</a>
+      <a href="#tree">Tree</a>
+      <a href="#santa">Santa</a>
+    </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
