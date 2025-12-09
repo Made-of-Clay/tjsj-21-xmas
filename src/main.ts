@@ -1,8 +1,4 @@
 import {
-    BoxGeometry,
-    LoadingManager,
-    Mesh,
-    MeshLambertMaterial,
     PCFSoftShadowMap,
     WebGLRenderer,
 } from 'three';
@@ -13,6 +9,7 @@ import { addHelpers } from './addHelpers';
 import { getScene } from './getScene';
 import { ProjectCamera } from './ProjectCamera';
 import { addNavListeners } from './addNavListeners';
+import { Tree } from './Tree';
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -22,24 +19,19 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 const scene = getScene();
 
-const loadingManager = new LoadingManager(console.log, undefined, console.error);
-loadingManager; // TS hack to shut it up
-
 addLights();
-
-// Dummy Object
-// TODO remove this object
-scene.add(
-    new Mesh(
-        new BoxGeometry(1, 1, 1),
-        new MeshLambertMaterial({ color: 'white' }),
-    ),
-);
 
 const camera = new ProjectCamera(canvas);
 scene.add(camera.instance);
 
 addHelpers();
+
+const tree = new Tree();
+tree.loadModel().then(() => {
+    // maybe update some loader util for UI updates
+    console.log(tree.instance);
+    scene.add(tree.instance);
+});
 
 addNavListeners();
 
