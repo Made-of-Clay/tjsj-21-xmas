@@ -1,8 +1,9 @@
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { getLoadingManager } from "./getLoadingManager";
+import { Group, Object3DEventMap } from "three";
 
 export class Tree {
-    instance: any;
+    instance: Group<Object3DEventMap> | null = null;
     loaded = false;
     loading = false;
 
@@ -10,7 +11,7 @@ export class Tree {
         const gltfLoader = new GLTFLoader(getLoadingManager());
         this.loading = true;
         try {
-            this.instance = await new Promise((resolve, reject) => {
+            this.instance = await new Promise<Group<Object3DEventMap>>((resolve, reject) => {
                 gltfLoader.load(
                     '/models/xmas-tree.gltf',
                     (gltf) => resolve(gltf.scene),

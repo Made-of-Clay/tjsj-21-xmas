@@ -28,6 +28,7 @@ addHelpers();
 
 const tree = new Tree();
 tree.loadModel().then(() => {
+    if (!tree.instance) return;
     // maybe update some loader util for UI updates
     console.log(tree.instance);
     scene.add(tree.instance);
