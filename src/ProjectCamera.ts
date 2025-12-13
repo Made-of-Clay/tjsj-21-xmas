@@ -7,15 +7,18 @@ import GUI from 'lil-gui';
 export class ProjectCamera {
     instance: PerspectiveCamera;
     #canvas: HTMLCanvasElement;
-    #cameraControls: OrbitControls
+    #cameraControls: OrbitControls | null = null;
     #cameraFolder: GUI;
 
-    constructor(canvas: HTMLCanvasElement) {
+    constructor(canvas: HTMLCanvasElement, loadCameraControls = false) {
         this.#canvas = canvas;
         this.instance = new PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-        this.instance.position.set(2, 2.5, 5.25);
-        this.#cameraControls = new OrbitControls(this.instance, canvas);
-        this.#cameraControls.enableDamping = true;
+        this.instance.position.set(2, 5, 5.25);
+        this.instance.lookAt(0, 5, 0);
+        if (loadCameraControls) {
+            this.#cameraControls = new OrbitControls(this.instance, canvas);
+            this.#cameraControls.enableDamping = true;
+        }
 
         const gui = getGui();
         // might add camera controls to set position better for each spot
@@ -31,6 +34,6 @@ export class ProjectCamera {
             this.instance.updateProjectionMatrix();
         };
 
-        this.#cameraControls.update();
+        this.#cameraControls?.update();
     }
 }
