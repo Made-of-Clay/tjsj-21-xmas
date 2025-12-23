@@ -16,7 +16,8 @@
 				96,
 				97,
 				98,
-				99
+				99,
+				100
 			]
 		}
 	],
@@ -1704,26 +1705,46 @@
 		},
 		{
 			"mesh":24,
-			"name":"Nativity Ornament",
+			"name":"Wood Nativity Ornament",
 			"rotation":[
-				0.6782159805297852,
-				0.2000577598810196,
-				-0.2000577598810196,
-				0.6782159805297852
+				0.518435001373291,
+				0.19359758496284485,
+				-0.12425693869590759,
+				0.8235930800437927
 			],
 			"scale":[
-				0.75,
-				0.75,
-				0.5299999713897705
+				0.13921724259853363,
+				0.13921724259853363,
+				0.13921724259853363
 			],
 			"translation":[
-				0.14385372400283813,
-				6.654376983642578,
-				0.2711615562438965
+				0.08392851799726486,
+				6.615848064422607,
+				0.24917124211788177
 			]
 		},
 		{
 			"mesh":25,
+			"name":"Wood  Nativity Ornament String",
+			"rotation":[
+				0.7071068286895752,
+				0,
+				0,
+				0.7071068286895752
+			],
+			"scale":[
+				0.13411425054073334,
+				0.24259409308433533,
+				0.24259409308433533
+			],
+			"translation":[
+				0.05916159227490425,
+				6.77610445022583,
+				0.19561046361923218
+			]
+		},
+		{
+			"mesh":26,
 			"name":"Snow Mound",
 			"scale":[
 				1,
@@ -1732,7 +1753,7 @@
 			]
 		},
 		{
-			"mesh":26,
+			"mesh":27,
 			"name":"Snow Ground"
 		}
 	],
@@ -1799,13 +1820,26 @@
 			}
 		},
 		{
-			"alphaMode":"BLEND",
 			"doubleSided":true,
-			"name":"Material.002",
+			"name":"Material",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":1
 				},
+				"metallicFactor":0,
+				"roughnessFactor":0.949999988079071
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"Material.004",
+			"pbrMetallicRoughness":{
+				"baseColorFactor":[
+					0.040679931640625,
+					0.0287933349609375,
+					0.022003173828125,
+					1
+				],
 				"metallicFactor":0,
 				"roughnessFactor":0.5
 			}
@@ -2169,7 +2203,7 @@
 			]
 		},
 		{
-			"name":"Plane.002",
+			"name":"Cylinder",
 			"primitives":[
 				{
 					"attributes":{
@@ -2183,7 +2217,7 @@
 			]
 		},
 		{
-			"name":"Snow Mound",
+			"name":"B\u00e9zierCircle.001",
 			"primitives":[
 				{
 					"attributes":{
@@ -2191,7 +2225,21 @@
 						"NORMAL":94,
 						"TEXCOORD_0":95
 					},
-					"indices":96
+					"indices":96,
+					"material":5
+				}
+			]
+		},
+		{
+			"name":"Snow Mound",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":97,
+						"NORMAL":98,
+						"TEXCOORD_0":99
+					},
+					"indices":100
 				}
 			]
 		},
@@ -2200,12 +2248,12 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":97,
-						"NORMAL":98,
-						"TEXCOORD_0":99
+						"POSITION":101,
+						"NORMAL":102,
+						"TEXCOORD_0":103
 					},
-					"indices":92,
-					"material":5
+					"indices":104,
+					"material":6
 				}
 			]
 		}
@@ -2228,17 +2276,17 @@
 		{
 			"mimeType":"image/jpeg",
 			"name":"ChristmasTree_baseColor",
-			"uri":"textures/ChristmasTree_baseColor.jpg"
+			"uri":"ChristmasTree_baseColor.jpg"
 		},
 		{
-			"mimeType":"image/png",
-			"name":"nativity-silhouette",
-			"uri":"textures/nativity-silhouette.png"
+			"mimeType":"image/jpeg",
+			"name":"cartoon-style2-scene-epiphany",
+			"uri":"cartoon-style2-scene-epiphany.jpg"
 		},
 		{
 			"mimeType":"image/jpeg",
 			"name":"soft-blue-snow",
-			"uri":"textures/soft-blue-snow.jpg"
+			"uri":"soft-blue-snow.jpg"
 		}
 	],
 	"accessors":[
@@ -3029,39 +3077,73 @@
 		{
 			"bufferView":89,
 			"componentType":5126,
-			"count":4,
+			"count":192,
 			"max":[
-				0.25,
-				0,
-				0.25
+				1,
+				0.017082691192626953,
+				1
 			],
 			"min":[
-				-0.25,
-				0,
-				-0.25
+				-1,
+				0.009899672120809555,
+				-0.9999999403953552
 			],
 			"type":"VEC3"
 		},
 		{
 			"bufferView":90,
 			"componentType":5126,
-			"count":4,
+			"count":192,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":91,
 			"componentType":5126,
-			"count":4,
+			"count":192,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":92,
 			"componentType":5123,
-			"count":6,
+			"count":372,
 			"type":"SCALAR"
 		},
 		{
 			"bufferView":93,
+			"componentType":5126,
+			"count":637,
+			"max":[
+				0.11614412814378738,
+				0.0346655398607254,
+				0.17941778898239136
+			],
+			"min":[
+				-0.20696429908275604,
+				-0.18547795712947845,
+				-0.07732696086168289
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":94,
+			"componentType":5126,
+			"count":637,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":95,
+			"componentType":5126,
+			"count":637,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":96,
+			"componentType":5123,
+			"count":3456,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":97,
 			"componentType":5126,
 			"count":120,
 			"max":[
@@ -3077,25 +3159,25 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":94,
+			"bufferView":98,
 			"componentType":5126,
 			"count":120,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":95,
+			"bufferView":99,
 			"componentType":5126,
 			"count":120,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":96,
+			"bufferView":100,
 			"componentType":5123,
 			"count":120,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":97,
+			"bufferView":101,
 			"componentType":5126,
 			"count":4,
 			"max":[
@@ -3111,16 +3193,22 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":98,
+			"bufferView":102,
 			"componentType":5126,
 			"count":4,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":99,
+			"bufferView":103,
 			"componentType":5126,
 			"count":4,
 			"type":"VEC2"
+		},
+		{
+			"bufferView":104,
+			"componentType":5123,
+			"count":6,
+			"type":"SCALAR"
 		}
 	],
 	"bufferViews":[
@@ -3660,69 +3748,99 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
+			"byteLength":2304,
 			"byteOffset":212772,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":212820,
+			"byteLength":2304,
+			"byteOffset":215076,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32,
-			"byteOffset":212868,
+			"byteLength":1536,
+			"byteOffset":217380,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12,
-			"byteOffset":212900,
+			"byteLength":744,
+			"byteOffset":218916,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":7644,
+			"byteOffset":219660,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":7644,
+			"byteOffset":227304,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":5096,
+			"byteOffset":234948,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":6912,
+			"byteOffset":240044,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1440,
-			"byteOffset":212912,
+			"byteOffset":246956,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1440,
-			"byteOffset":214352,
+			"byteOffset":248396,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":960,
-			"byteOffset":215792,
+			"byteOffset":249836,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":240,
-			"byteOffset":216752,
+			"byteOffset":250796,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":48,
-			"byteOffset":216992,
+			"byteOffset":251036,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":48,
-			"byteOffset":217040,
+			"byteOffset":251084,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":32,
-			"byteOffset":217088,
+			"byteOffset":251132,
 			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":12,
+			"byteOffset":251164,
+			"target":34963
 		}
 	],
 	"samplers":[
@@ -3733,7 +3851,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":217120,
+			"byteLength":251176,
 			"uri":"xmas-toonish.bin"
 		}
 	]
