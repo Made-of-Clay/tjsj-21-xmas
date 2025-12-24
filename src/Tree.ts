@@ -30,21 +30,8 @@ export class Tree {
         }
     }
 
-    animate(deltaTime: number) {
+    animate(_deltaTime: number) {
         if (!this.instance && !this.loaded) return;
-        this.lightController.animateLights(deltaTime);
+        this.lightController.animateLights();
     }
 }
-// Loads tree model into the scene
-// model will include ornaments in places of interest, a star, some presents beneath
-// list of things to expect
-// - tree
-// - nativity ornament
-// - star topper
-// - presents
-// - lights
-// - wreath (nearby?)
-// - Santa ornament/hat/silhouette?
-// - maybe candy canes hanging from tree
-// room corner holds tree (make it simple and cozy; flickering fire effect would be nice)
-// QUESTION: what post processing effect for lights? bloom? glowy materials?

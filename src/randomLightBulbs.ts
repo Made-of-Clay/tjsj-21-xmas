@@ -15,8 +15,9 @@ class ChristmasLightController {
     ];
     lightBulbMeshes: Mesh[] = [];
     originalMaterials = new Map<string, MeshStandardMaterial>();
-    animationSpeed = 0.002;
+    animationSpeed = 0.1;
     time = 0;
+    globalPhase = 0;
 
     // Load the GLTF model and setup random light colors
     async loadModel(scene: Scene, modelPath = 'models/xmas-toonish.gltf') {
@@ -82,13 +83,16 @@ class ChristmasLightController {
     }
 
     // Animate the light bulbs (optional twinkling effect)
-    animateLights(deltaTime: number) {
-        this.time += deltaTime;
+    animateLights() {
+        // Use fixed increment for constant speed regardless of frame rate
+        this.globalPhase += this.animationSpeed;
 
+        const numBulbs = this.lightBulbMeshes.length;
+        const phaseOffset = 2 * Math.PI / numBulbs;
         this.lightBulbMeshes.forEach((bulb, index) => {
-            // Create a unique phase for each bulb
-            const phase = (index * 0.5) + this.time * this.animationSpeed;
-            const intensity = 1.5 + Math.sin(phase) * 0.75; // Oscillate between 1.0 and 2.0
+            // Evenly distribute phases for consistent twinkling wave
+            const phase = this.globalPhase + index * phaseOffset;
+            const intensity = Math.max(0.5, Math.sin(phase) * 10); // Ensure non-negative intensity
 
             if (bulb.material && bulb.material instanceof MeshStandardMaterial) {
                 bulb.material.emissiveIntensity = intensity;
