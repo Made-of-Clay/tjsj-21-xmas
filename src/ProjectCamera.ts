@@ -13,12 +13,14 @@ export class ProjectCamera {
     constructor(canvas: HTMLCanvasElement, loadCameraControls = false) {
         this.#canvas = canvas;
         this.instance = new PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-        this.instance.position.set(2, 10, 5.25);
+        this.instance.position.set(2, 5, 5.25);
         this.instance.lookAt(0, 5, 0);
         if (loadCameraControls) {
             this.#cameraControls = new OrbitControls(this.instance, canvas);
             this.#cameraControls.enableDamping = true;
         }
+        this.#cameraControls?.target?.set(0, 5, 0);
+        this.#cameraControls?.update();
 
         const gui = getGui();
         // might add camera controls to set position better for each spot
