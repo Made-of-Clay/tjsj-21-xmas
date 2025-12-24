@@ -13,7 +13,7 @@ export class ProjectCamera {
     constructor(canvas: HTMLCanvasElement, loadCameraControls = false) {
         this.#canvas = canvas;
         this.instance = new PerspectiveCamera(75, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
-        this.instance.position.set(2, 5, 5.25);
+        this.instance.position.set(2, 10, 5.25);
         this.instance.lookAt(0, 5, 0);
         if (loadCameraControls) {
             this.#cameraControls = new OrbitControls(this.instance, canvas);
