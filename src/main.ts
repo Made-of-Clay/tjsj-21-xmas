@@ -1,6 +1,7 @@
 import {
     EquirectangularReflectionMapping,
     PCFSoftShadowMap,
+    Timer,
     WebGLRenderer,
 } from 'three';
 import Stats from 'stats.js';
@@ -13,6 +14,7 @@ import { addNavListeners } from './addNavListeners';
 import { Tree } from './Tree';
 import { HDRLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager } from './getLoadingManager';
+import { getGui } from './getGui';
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -22,6 +24,8 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 const scene = getScene();
 
+const gui = getGui();
+
 const hdrLoader = new HDRLoader(getLoadingManager());
 hdrLoader.load('/kloppenheim_02_puresky_2k.hdr', (texture) => {
     // Convert to three.js's required format (WebGpu/WebGL)
@@ -29,10 +33,12 @@ hdrLoader.load('/kloppenheim_02_puresky_2k.hdr', (texture) => {
 
     // Set the scene's environment
     scene.environment = texture;
+    scene.environmentIntensity = 0.65;
+    gui.add(scene, 'environmentIntensity').min(0).max(1).step(0.01);
 
     // Optional: Set the background as well if you want the sky to be visible
     scene.background = texture;
-})
+});
 
 addLights();
 
@@ -55,11 +61,19 @@ addNavListeners();
 const stats = new Stats();
 document.body.appendChild(stats.dom);
 
+const timer = new Timer();
+let previousTime = 0;
+
 function tick() {
     requestAnimationFrame(tick);
 
     stats.begin();
 
+    timer.update();
+    const elapsedTime = timer.getElapsed();
+    const deltaTime = elapsedTime - previousTime;
+    tree.animate(deltaTime);
+    
     camera.tick(renderer);
 
     renderer.render(scene, camera.instance);

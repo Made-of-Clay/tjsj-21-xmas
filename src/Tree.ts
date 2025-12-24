@@ -1,11 +1,13 @@
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager } from './getLoadingManager';
 import { Group, Object3DEventMap } from 'three';
+import ChristmasLightController from './randomLightBulbs';
 
 export class Tree {
     instance: Group<Object3DEventMap> | null = null;
     loaded = false;
     loading = false;
+    lightController = new ChristmasLightController(); 
 
     async loadModel() {
         const gltfLoader = new GLTFLoader(getLoadingManager());
@@ -19,12 +21,18 @@ export class Tree {
                     reject,
                 );
             });
+            this.lightController.setupRandomLightBulbs(this.instance);
             this.loaded = true;
         } catch (error) {
             console.error(error);
         } finally {
             this.loading = false;
         }
+    }
+
+    animate(deltaTime: number) {
+        if (!this.instance && !this.loaded) return;
+        this.lightController.animateLights(deltaTime);
     }
 }
 // Loads tree model into the scene

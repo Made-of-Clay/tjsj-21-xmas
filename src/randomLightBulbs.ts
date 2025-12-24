@@ -11,11 +11,9 @@ class ChristmasLightController {
         new Color(1, 0.5, 0),    // Orange
         new Color(1, 0, 1),      // Magenta
         new Color(0, 1, 1),      // Cyan
-        new Color(1, 1, 1),      // White
         new Color(0.5, 0, 1),    // Purple
-        new Color(1, 0.5, 0.8),  // Pink
     ];
-    lightBulbMeshes: Mesh<Object3DEventMap>[] = [];
+    lightBulbMeshes: Mesh[] = [];
     originalMaterials = new Map<string, MeshStandardMaterial>();
     animationSpeed = 0.002;
     time = 0;
@@ -23,7 +21,7 @@ class ChristmasLightController {
     // Load the GLTF model and setup random light colors
     async loadModel(scene: Scene, modelPath = 'models/xmas-toonish.gltf') {
         const loader = new GLTFLoader();
-        
+
         return new Promise((resolve, reject) => {
             loader.load(modelPath, (gltf) => {
                 scene.add(gltf.scene);
@@ -34,20 +32,20 @@ class ChristmasLightController {
     }
 
     // Find all light bulb meshes and assign random colors
-    setupRandomLightBulbs(gltfScene: Mesh<Object3DEventMap>) {
+    setupRandomLightBulbs(gltfScene: Group<Object3DEventMap>) {
         gltfScene.traverse((child) => {
-            if (child.isMesh && child.name === 'Light Bulb') {
+            if (child instanceof Mesh && child.name === 'Light_Bulb_51') {
                 this.lightBulbMeshes.push(child);
-                
+
                 // Store original material for reference
                 if (child.material && !this.originalMaterials.has(child.material.uuid)) {
                     this.originalMaterials.set(child.material.uuid, child.material.clone());
                 }
-                
+
                 // Create a new emissive material with random color
-                const randomColor = this.getRandomColor();
-                const emissiveMaterial = this.createEmissiveMaterial(randomColor);
-                
+                const randomColor = this.#getRandomColor();
+                const emissiveMaterial = this.#createEmissiveMaterial(randomColor);
+
                 // If the mesh has multiple materials (array), replace the emissive one
                 if (Array.isArray(child.material)) {
                     child.material = child.material.map(mat => {
@@ -66,7 +64,7 @@ class ChristmasLightController {
     }
 
     // Create an emissive material with the specified color
-    createEmissiveMaterial(color: Color, intensity = 2.0) {
+    #createEmissiveMaterial(color: Color, intensity = 2.0) {
         return new MeshStandardMaterial({
             color: new Color(0.1, 0.1, 0.1), // Dark base color
             emissive: color,
@@ -79,55 +77,52 @@ class ChristmasLightController {
     }
 
     // Get a random color from the predefined palette
-    getRandomColor() {
+    #getRandomColor() {
         return this.lightColors[Math.floor(Math.random() * this.lightColors.length)].clone();
     }
 
     // Animate the light bulbs (optional twinkling effect)
     animateLights(deltaTime: number) {
         this.time += deltaTime;
-        
+
         this.lightBulbMeshes.forEach((bulb, index) => {
             // Create a unique phase for each bulb
             const phase = (index * 0.5) + this.time * this.animationSpeed;
-            const intensity = 1.5 + Math.sin(phase) * 0.5; // Oscillate between 1.0 and 2.0
-            
-            if (bulb.material) {
+            const intensity = 1.5 + Math.sin(phase) * 0.75; // Oscillate between 1.0 and 2.0
+
+            if (bulb.material && bulb.material instanceof MeshStandardMaterial) {
                 bulb.material.emissiveIntensity = intensity;
             }
         });
     }
 
-    // Randomize colors again (useful for testing or effects)
+    /** Randomize colors again (useful for testing or effects) */
     randomizeColors() {
         this.lightBulbMeshes.forEach((bulb) => {
-            const randomColor = this.getRandomColor();
-            if (bulb.material) {
+            const randomColor = this.#getRandomColor();
+            if (bulb.material && bulb.material instanceof MeshStandardMaterial) {
                 bulb.material.emissive.copy(randomColor);
             }
         });
     }
 
-    // Set all bulbs to a specific color
-    setAllBulbsColor(color) {
+    setAllBulbsColor(color: Color) {
         this.lightBulbMeshes.forEach((bulb) => {
-            if (bulb.material) {
+            if (bulb.material && bulb.material instanceof MeshStandardMaterial) {
                 bulb.material.emissive.copy(color);
             }
         });
     }
 
-    // Toggle lights on/off
-    toggleLights(on = true) {
+    toggleLights(on: boolean) {
         const intensity = on ? 2.0 : 0.0;
         this.lightBulbMeshes.forEach((bulb) => {
-            if (bulb.material) {
+            if (bulb.material && bulb.material instanceof MeshStandardMaterial) {
                 bulb.material.emissiveIntensity = intensity;
             }
         });
     }
 
-    // Dispose of materials when done
     dispose() {
         this.lightBulbMeshes.forEach((bulb) => {
             if (bulb.material) {
@@ -147,10 +142,10 @@ class ChristmasLightController {
 export default ChristmasLightController;
 
 // Alternative: Direct function approach for simpler use cases
-export function setupRandomLightBulbs(gltfScene) {
+export function setupRandomLightBulbs(gltfScene: Group<Object3DEventMap>) {
     const lightColors = [
         new Color(1, 0, 0),      // Red
-        new Color(0, 1, 0),      // Green  
+        new Color(0, 1, 0),      // Green
         new Color(0, 0, 1),      // Blue
         new Color(1, 1, 0),      // Yellow
         new Color(1, 0.5, 0),    // Orange
@@ -160,9 +155,9 @@ export function setupRandomLightBulbs(gltfScene) {
     ];
 
     gltfScene.traverse((child) => {
-        if (child.isMesh && child.name === 'Light Bulb') {
+        if (child instanceof Mesh && child.name === 'Light Bulb') {
             const randomColor = lightColors[Math.floor(Math.random() * lightColors.length)];
-            
+
             child.material = new MeshStandardMaterial({
                 color: new Color(0.1, 0.1, 0.1),
                 emissive: randomColor,
