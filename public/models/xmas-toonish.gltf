@@ -14,10 +14,12 @@
 				45,
 				95,
 				96,
-				97,
-				98,
 				99,
-				100
+				100,
+				101,
+				102,
+				103,
+				105
 			]
 		}
 	],
@@ -1705,6 +1707,54 @@
 		},
 		{
 			"mesh":24,
+			"name":"Xmas Tree Gifts"
+		},
+		{
+			"children":[
+				97
+			],
+			"name":"Xmas Tree Gifts Empty 1",
+			"rotation":[
+				0,
+				-0.06096729636192322,
+				0,
+				0.9981397986412048
+			],
+			"scale":[
+				1.1230478286743164,
+				1.123047947883606,
+				1.1230478286743164
+			],
+			"translation":[
+				0.8780053853988647,
+				-0.07198524475097656,
+				0.564170777797699
+			]
+		},
+		{
+			"children":[
+				98
+			],
+			"name":"Xmas Tree Gifts Empty 2",
+			"rotation":[
+				0,
+				0.9390413761138916,
+				0,
+				0.3438042402267456
+			],
+			"scale":[
+				2.0111284255981445,
+				2.0111277103424072,
+				2.0111284255981445
+			],
+			"translation":[
+				0,
+				2.866957426071167,
+				0
+			]
+		},
+		{
+			"mesh":25,
 			"name":"Wood Nativity Ornament",
 			"rotation":[
 				0.518435001373291,
@@ -1724,7 +1774,7 @@
 			]
 		},
 		{
-			"mesh":25,
+			"mesh":26,
 			"name":"Wood  Nativity Ornament String",
 			"rotation":[
 				0.7071068286895752,
@@ -1744,7 +1794,7 @@
 			]
 		},
 		{
-			"mesh":26,
+			"mesh":27,
 			"name":"Snow Mound",
 			"scale":[
 				1,
@@ -1753,8 +1803,45 @@
 			]
 		},
 		{
-			"mesh":27,
+			"mesh":28,
 			"name":"Snow Ground"
+		},
+		{
+			"mesh":29,
+			"name":"Sleigh Mesh",
+			"rotation":[
+				-0.07964944839477539,
+				0.0016621067188680172,
+				-0.0013828158844262362,
+				0.9968206882476807
+			],
+			"translation":[
+				-12.427624702453613,
+				-18.710952758789062,
+				4.403375148773193
+			]
+		},
+		{
+			"children":[
+				104
+			],
+			"name":"Sleigh",
+			"rotation":[
+				0.7071070075035095,
+				0,
+				0,
+				0.7071065902709961
+			],
+			"scale":[
+				0.08606527000665665,
+				0.08606527000665665,
+				0.08606527000665665
+			],
+			"translation":[
+				2.308718204498291,
+				3.316547393798828,
+				-2.093662977218628
+			]
 		}
 	],
 	"materials":[
@@ -1821,10 +1908,21 @@
 		},
 		{
 			"doubleSided":true,
-			"name":"Material",
+			"name":"xmt.gifts",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
 					"index":1
+				},
+				"metallicFactor":0,
+				"roughnessFactor":0.5
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"Material",
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":2
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.949999988079071
@@ -1849,10 +1947,25 @@
 			"name":"Material.001",
 			"pbrMetallicRoughness":{
 				"baseColorTexture":{
-					"index":2
+					"index":3
 				},
 				"metallicFactor":0,
 				"roughnessFactor":0.5
+			}
+		},
+		{
+			"doubleSided":true,
+			"name":"lambert4",
+			"normalTexture":{
+				"index":4
+			},
+			"pbrMetallicRoughness":{
+				"baseColorTexture":{
+					"index":5
+				},
+				"metallicRoughnessTexture":{
+					"index":6
+				}
 			}
 		}
 	],
@@ -2203,7 +2316,7 @@
 			]
 		},
 		{
-			"name":"Cylinder",
+			"name":"Object_3",
 			"primitives":[
 				{
 					"attributes":{
@@ -2217,7 +2330,7 @@
 			]
 		},
 		{
-			"name":"B\u00e9zierCircle.001",
+			"name":"Cylinder",
 			"primitives":[
 				{
 					"attributes":{
@@ -2231,7 +2344,7 @@
 			]
 		},
 		{
-			"name":"Snow Mound",
+			"name":"Wood Nativity Ornament String",
 			"primitives":[
 				{
 					"attributes":{
@@ -2239,7 +2352,21 @@
 						"NORMAL":98,
 						"TEXCOORD_0":99
 					},
-					"indices":100
+					"indices":100,
+					"material":6
+				}
+			]
+		},
+		{
+			"name":"Snow Mound",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":101,
+						"NORMAL":102,
+						"TEXCOORD_0":103
+					},
+					"indices":104
 				}
 			]
 		},
@@ -2248,12 +2375,30 @@
 			"primitives":[
 				{
 					"attributes":{
-						"POSITION":101,
-						"NORMAL":102,
-						"TEXCOORD_0":103
+						"POSITION":105,
+						"NORMAL":106,
+						"TEXCOORD_0":107
 					},
-					"indices":104,
-					"material":6
+					"indices":108,
+					"material":7
+				}
+			]
+		},
+		{
+			"name":"Sleigh Data",
+			"primitives":[
+				{
+					"attributes":{
+						"POSITION":109,
+						"NORMAL":110,
+						"TEXCOORD_0":111,
+						"TEXCOORD_1":112,
+						"TEXCOORD_2":113,
+						"TEXCOORD_3":114,
+						"TEXCOORD_4":115
+					},
+					"indices":116,
+					"material":8
 				}
 			]
 		}
@@ -2270,6 +2415,22 @@
 		{
 			"sampler":0,
 			"source":2
+		},
+		{
+			"sampler":0,
+			"source":3
+		},
+		{
+			"sampler":0,
+			"source":4
+		},
+		{
+			"sampler":0,
+			"source":5
+		},
+		{
+			"sampler":0,
+			"source":6
 		}
 	],
 	"images":[
@@ -2277,6 +2438,11 @@
 			"mimeType":"image/jpeg",
 			"name":"ChristmasTree_baseColor",
 			"uri":"ChristmasTree_baseColor.jpg"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"xmt.gifts_baseColor",
+			"uri":"xmt.gifts_baseColor.png"
 		},
 		{
 			"mimeType":"image/jpeg",
@@ -2287,6 +2453,21 @@
 			"mimeType":"image/jpeg",
 			"name":"soft-blue-snow",
 			"uri":"soft-blue-snow.jpg"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"lambert4_normal",
+			"uri":"lambert4_normal.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"lambert4_baseColor",
+			"uri":"lambert4_baseColor.png"
+		},
+		{
+			"mimeType":"image/png",
+			"name":"lambert4_metallicRoughness",
+			"uri":"lambert4_metallicRoughness.png"
 		}
 	],
 	"accessors":[
@@ -3077,6 +3258,40 @@
 		{
 			"bufferView":89,
 			"componentType":5126,
+			"count":9650,
+			"max":[
+				-0.11367963999509811,
+				0.2801033556461334,
+				0.5187886953353882
+			],
+			"min":[
+				-1.7919849157333374,
+				-0.0004554718325380236,
+				-1.384583830833435
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":90,
+			"componentType":5126,
+			"count":9650,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":91,
+			"componentType":5126,
+			"count":9650,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":92,
+			"componentType":5123,
+			"count":12684,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":93,
+			"componentType":5126,
 			"count":192,
 			"max":[
 				1,
@@ -3091,25 +3306,25 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":90,
+			"bufferView":94,
 			"componentType":5126,
 			"count":192,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":91,
+			"bufferView":95,
 			"componentType":5126,
 			"count":192,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":92,
+			"bufferView":96,
 			"componentType":5123,
 			"count":372,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":93,
+			"bufferView":97,
 			"componentType":5126,
 			"count":637,
 			"max":[
@@ -3125,25 +3340,25 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":94,
+			"bufferView":98,
 			"componentType":5126,
 			"count":637,
 			"type":"VEC3"
 		},
 		{
-			"bufferView":95,
+			"bufferView":99,
 			"componentType":5126,
 			"count":637,
 			"type":"VEC2"
 		},
 		{
-			"bufferView":96,
+			"bufferView":100,
 			"componentType":5123,
 			"count":3456,
 			"type":"SCALAR"
 		},
 		{
-			"bufferView":97,
+			"bufferView":101,
 			"componentType":5126,
 			"count":120,
 			"max":[
@@ -3159,55 +3374,113 @@
 			"type":"VEC3"
 		},
 		{
-			"bufferView":98,
-			"componentType":5126,
-			"count":120,
-			"type":"VEC3"
-		},
-		{
-			"bufferView":99,
-			"componentType":5126,
-			"count":120,
-			"type":"VEC2"
-		},
-		{
-			"bufferView":100,
-			"componentType":5123,
-			"count":120,
-			"type":"SCALAR"
-		},
-		{
-			"bufferView":101,
-			"componentType":5126,
-			"count":4,
-			"max":[
-				50,
-				0,
-				50
-			],
-			"min":[
-				-50,
-				0,
-				-50
-			],
-			"type":"VEC3"
-		},
-		{
 			"bufferView":102,
 			"componentType":5126,
-			"count":4,
+			"count":120,
 			"type":"VEC3"
 		},
 		{
 			"bufferView":103,
 			"componentType":5126,
-			"count":4,
+			"count":120,
 			"type":"VEC2"
 		},
 		{
 			"bufferView":104,
 			"componentType":5123,
-			"count":6,
+			"count":120,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":105,
+			"componentType":5126,
+			"count":81,
+			"max":[
+				45.83333969116211,
+				0,
+				45.83333969116211
+			],
+			"min":[
+				-45.83333969116211,
+				0,
+				-45.83333969116211
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":106,
+			"componentType":5126,
+			"count":81,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":107,
+			"componentType":5126,
+			"count":81,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":108,
+			"componentType":5123,
+			"count":384,
+			"type":"SCALAR"
+		},
+		{
+			"bufferView":109,
+			"componentType":5126,
+			"count":5235,
+			"max":[
+				22.4711856842041,
+				11.249856948852539,
+				5.243657112121582
+			],
+			"min":[
+				-22.78227424621582,
+				-11.21243953704834,
+				-15.555591583251953
+			],
+			"type":"VEC3"
+		},
+		{
+			"bufferView":110,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC3"
+		},
+		{
+			"bufferView":111,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":112,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":113,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":114,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":115,
+			"componentType":5126,
+			"count":5235,
+			"type":"VEC2"
+		},
+		{
+			"bufferView":116,
+			"componentType":5123,
+			"count":12240,
 			"type":"SCALAR"
 		}
 	],
@@ -3748,98 +4021,170 @@
 		},
 		{
 			"buffer":0,
-			"byteLength":2304,
+			"byteLength":115800,
 			"byteOffset":212772,
 			"target":34962
 		},
 		{
 			"buffer":0,
+			"byteLength":115800,
+			"byteOffset":328572,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":77200,
+			"byteOffset":444372,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":25368,
+			"byteOffset":521572,
+			"target":34963
+		},
+		{
+			"buffer":0,
 			"byteLength":2304,
-			"byteOffset":215076,
+			"byteOffset":546940,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":2304,
+			"byteOffset":549244,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1536,
-			"byteOffset":217380,
+			"byteOffset":551548,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":744,
-			"byteOffset":218916,
+			"byteOffset":553084,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":7644,
-			"byteOffset":219660,
+			"byteOffset":553828,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":7644,
-			"byteOffset":227304,
+			"byteOffset":561472,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":5096,
-			"byteOffset":234948,
+			"byteOffset":569116,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":6912,
-			"byteOffset":240044,
+			"byteOffset":574212,
 			"target":34963
 		},
 		{
 			"buffer":0,
 			"byteLength":1440,
-			"byteOffset":246956,
+			"byteOffset":581124,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":1440,
-			"byteOffset":248396,
+			"byteOffset":582564,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":960,
-			"byteOffset":249836,
+			"byteOffset":584004,
 			"target":34962
 		},
 		{
 			"buffer":0,
 			"byteLength":240,
-			"byteOffset":250796,
+			"byteOffset":584964,
 			"target":34963
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":251036,
+			"byteLength":972,
+			"byteOffset":585204,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":48,
-			"byteOffset":251084,
+			"byteLength":972,
+			"byteOffset":586176,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":32,
-			"byteOffset":251132,
+			"byteLength":648,
+			"byteOffset":587148,
 			"target":34962
 		},
 		{
 			"buffer":0,
-			"byteLength":12,
-			"byteOffset":251164,
+			"byteLength":768,
+			"byteOffset":587796,
+			"target":34963
+		},
+		{
+			"buffer":0,
+			"byteLength":62820,
+			"byteOffset":588564,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":62820,
+			"byteOffset":651384,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":41880,
+			"byteOffset":714204,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":41880,
+			"byteOffset":756084,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":41880,
+			"byteOffset":797964,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":41880,
+			"byteOffset":839844,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":41880,
+			"byteOffset":881724,
+			"target":34962
+		},
+		{
+			"buffer":0,
+			"byteLength":24480,
+			"byteOffset":923604,
 			"target":34963
 		}
 	],
@@ -3851,7 +4196,7 @@
 	],
 	"buffers":[
 		{
-			"byteLength":251176,
+			"byteLength":948084,
 			"uri":"xmas-toonish.bin"
 		}
 	]
