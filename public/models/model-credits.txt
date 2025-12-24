@@ -1,0 +1,11 @@
+Model Information:
+* title:	Low Poly Christmas Tree
+* source:	https://sketchfab.com/3d-models/low-poly-christmas-tree-2b78bbb6adbc4286af8fc1d37ea0de8d
+* author:	Flimichan (https://sketchfab.com/Flimichan)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Low Poly Christmas Tree" (https://sketchfab.com/3d-models/low-poly-christmas-tree-2b78bbb6adbc4286af8fc1d37ea0de8d) by Flimichan (https://sketchfab.com/Flimichan) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
