@@ -7,6 +7,7 @@ export function addLights() {
     const lightsFolder = gui.addFolder('Lights');
 
     const ambientLight = new AmbientLight('white', 0.25);
+    ambientLight.visible = false;
 
     lightsFolder.add(ambientLight, 'visible').name('Ambient Light');
 
@@ -18,6 +19,7 @@ export function addLights() {
     pointLight.shadow.camera.far = 1000;
     pointLight.shadow.mapSize.width = 2048;
     pointLight.shadow.mapSize.height = 2048;
+    pointLight.visible = false;
 
     lightsFolder.add(pointLight, 'visible').name('Point Light');
     lightsFolder.add(pointLight.position, 'x', -10, 10, 0.01).name('Point Light X');
@@ -26,7 +28,7 @@ export function addLights() {
     lightsFolder.add(pointLight, 'intensity', 0, 500, 1).name('Point Light Intensity');
 
     const pointLightHelper = new PointLightHelper(pointLight, 0.25, 'orange');
-    // pointLightHelper.visible = false;
+    pointLightHelper.visible = false;
     lightsFolder.add(pointLightHelper, 'visible').name('Point Light Helper');
 
     const scene = getScene();
