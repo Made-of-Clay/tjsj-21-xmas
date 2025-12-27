@@ -15,6 +15,8 @@ import { Tree } from './Tree';
 import { HDRLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager } from './getLoadingManager';
 import { getGui } from './getGui';
+import { gsap } from 'gsap';
+import { bindShots } from './bindShot';
 
 const canvas = document.createElement('canvas');
 document.body.appendChild(canvas);
@@ -56,6 +58,8 @@ tree.loadModel().then(() => {
 });
 
 addNavListeners();
+
+bindShots(camera.instance, undefined, {}, gsap);
 
 // ===== 📈 STATS & CLOCK =====
 const stats = new Stats();

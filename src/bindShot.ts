@@ -21,7 +21,7 @@ export interface ShotMap {
  */
 export function bindShots(
     camera: PerspectiveCamera,
-    _orbitControls: OrbitControls,
+    _orbitControls: OrbitControls | null = null,
     shots: Record<string, ShotMap>,
     gsap: GSAP | null = null,
 ) {
