@@ -16,8 +16,6 @@
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
 }
 
 body,
@@ -26,6 +24,9 @@ html {
 }
 
 canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
   height: 100%;
   width: 100%;
   outline: none;
@@ -38,6 +39,22 @@ canvas {
     rgba(61, 79, 94, 0.885) 40%,
     rgb(17, 19, 23)
   );
+}
+
+article {
+  background: #00000077;
+  padding: 25vh 0;
+  position: relative;
+  width: 30ch;
+  z-index: 1;
+
+  > section {
+    margin: 0 1rem;
+
+    & + & {
+      margin-top: 100vh;
+    }
+  }
 }
 
 h1 {

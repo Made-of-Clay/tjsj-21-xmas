@@ -19,6 +19,7 @@
         position: fixed;
         right: 0;
         top: 2rem;
+        z-index: 1;
 
         a {
           background-color: transparent;
@@ -54,8 +55,8 @@
       <a id="tree" href="#tree">Tree</a>
       <a id="santa" href="#santa">Santa</a>
     </nav>
-    <div>
-      <section>
+    <article>
+      <section data-shot="nativity">
         <h2>Nativity</h2>
         <p>
           Nativities are direct representations of the birth narratives found in the Gospels of Matthew &amp; Luke.
@@ -71,7 +72,70 @@
           Hand-crafted Nativity sets evolved into common household devotionals in Catholic Europe. Now nativities are commonplace in Christian homes worldwide during the Christmas season.
         </p>
       </section>
-    </div>
+
+      <section data-shot="star">
+        <h2>Star</h2>
+        <p>
+          The star derives from Matthew's Gospel as the celestial sign guiding the Magi. It commonly tops evergreen Christmas trees in modern traditions.
+        </p>
+        <p>
+          It has been depicted historically as a single bright star, but some other explanations include a comet or  planetary conjunction. Angels are also sometimes referred to as stars in biblical poetry (Job 38:7; Isaiah 14:13; Revelation 1:20).
+        </p>
+        <p>
+          The Christmas star theologically represents divine guidance &amp; the visual shorthand for the Incarnation.
+        </p>
+      </section>
+
+      <section data-shot="gifts">
+        <h2>Gifts</h2>
+        <p>
+          Gift-giving is anchored in the biblical Magi bringing gold, frankincense, and myrrh. Traditions of Santa Claus giving gifts to children are inspired by St. Nicholas of Myra, a 4th-century bishop known for his generosity.
+        </p>
+        <p>
+          Pre-christian traditions like Saturnalia &amp; Yule were blended into Christmas gift-giving customs. This helped preserve practices compatible with Christian theology.
+        </p>
+        <p>
+          The tradition was solidified in the 19th century into a child-focused family gift exchange.
+        </p>
+      </section>
+
+      <section data-shot="lights">
+        <h2>Lights</h2>
+        <p>
+          Candles and fires at midwinter long predate Christianity pointing towards the sun's return. Christianity interprets them as signs of Christ: "Light of the World."
+        </p>
+        <p>
+          Tree candles and window lights developed in early-modern German Protestant homes. Electric lights later allowed this symbol to become widespread and safe.
+        </p>
+      </section>
+
+      <section data-shot="tree">
+        <h2>Tree</h2>
+        <p>
+          Greco-Roman and Germanic rites used winter evergreens to signify life enduring darkness (i.e. remaining green during the dead of winter).
+        </p>
+        <p>
+          The modern Christmas tree tradition began in 16th-century Germany, popularized by Martin Luther. It spread through Europe and North America in the 18th &amp; 19th centuries.
+        </p>
+        <p>Wreaths similarly represent life in the winter, and also symbolize the cyclical nature of time &amp; the promise of renewal.</p>
+      </section>
+
+      <section data-shot="santa">
+        <h2>Santa</h2>
+        <p>
+          St. Nicholas of Myra (4th century) is the source of the Santa Claus figure. Known for his generosity, he inspired gift-giving traditions during Christmas.
+        </p>
+        <p>
+          Nicholas eventually merged (conceptually) with Dutch-American "Sinterklaas" and European gift-bringer folklore. 19th-20th-century media later established the secular, red-suited North Pole figure.
+        </p>
+        <p>
+          <a href="https://www.britannica.com/biography/Saint-Nicholas" target="_blank">
+            Read more about St. Nicholas / Santa Claus.
+          </a>
+        </p>
+      </section>
+    </article>
+
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
