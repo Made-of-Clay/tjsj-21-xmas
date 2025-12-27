@@ -1,6 +1,6 @@
 import { GLTFLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager } from './getLoadingManager';
-import { Group, Object3DEventMap } from 'three';
+import { Group, Mesh, Object3DEventMap } from 'three';
 import ChristmasLightController from './randomLightBulbs';
 
 export class Tree {
@@ -22,12 +22,32 @@ export class Tree {
                 );
             });
             this.lightController.setupRandomLightBulbs(this.instance);
+            this.#addShadows();
             this.loaded = true;
         } catch (error) {
             console.error(error);
         } finally {
             this.loading = false;
         }
+    }
+
+    #addShadows() {
+        if (!this.instance) return;
+        this.instance.traverse((child) => {
+            if (child.name === 'Snow_Mound') {
+                child.receiveShadow = true;
+            }
+            if (child.name.startsWith('Cone') && (child instanceof Mesh)) {
+                child.castShadow = true;
+            }
+            if (child.name.includes('Gifts') && (child instanceof Mesh)) {
+                child.castShadow = true;
+            }
+            if (child.name === 'Sleigh_Mesh') {
+                console.log(child)
+                child.castShadow = true;
+            }
+        });
     }
 
     animate(_deltaTime: number) {

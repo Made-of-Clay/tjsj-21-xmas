@@ -11,15 +11,15 @@ export function addLights() {
 
     lightsFolder.add(ambientLight, 'visible').name('Ambient Light');
 
-    const pointLight = new PointLight('white', 200, 100);
-    pointLight.position.set(2.5, 10, 2.25);
+    const pointLight = new PointLight('white', 25, 100);
+    pointLight.position.set(4, 10, 4);
     pointLight.castShadow = true;
     pointLight.shadow.radius = 4;
     pointLight.shadow.camera.near = 0.1;
     pointLight.shadow.camera.far = 1000;
     pointLight.shadow.mapSize.width = 2048;
     pointLight.shadow.mapSize.height = 2048;
-    pointLight.visible = false;
+    // pointLight.visible = false;
 
     lightsFolder.add(pointLight, 'visible').name('Point Light');
     lightsFolder.add(pointLight.position, 'x', -10, 10, 0.01).name('Point Light X');
