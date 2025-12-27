@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Three.js Journey Challenge #21 - Christmas</title>
     <style>
+      /* TODO migrate styles to style.css once loading overlay is working */
       nav {
         background-color: #00000066;
         box-shadow: 0 0 1rem #00ffb2aa inset;
@@ -21,18 +22,21 @@
       }
       a {
         background-color: transparent;
-        color: rgb(158, 158, 255);
+        color: oklab(73.898% 0.02997 -0.13552);
+        outline: none;
         padding: 0.25rem 1.75rem;
         text-decoration: none;
         transition: background-color 0.3s;
-        outline: none;
-
+        
         &:hover {
           background-color: #0006;
         }
         &:focus, &:focus-visible {
-          outline-color: #fff3;
           background-color: #0009;
+          outline-color: #fff3;
+        }
+        &:target {
+          color: #00ffb2aa;
         }
       }
       .lil-gui.lil-root { right: 450px; }
@@ -40,14 +44,14 @@
   </head>
   <body>
     <nav>
-      <a href="#nativity">Nativity</a>
+      <a id="nativity" href="#nativity">Nativity</a>
       <!-- <a href="#angels">Angels</a> -->
-      <a href="#star">Star</a>
-      <a href="#gifts">Gifts</a>
-      <a href="#lights">Lights</a>
+      <a id="star" href="#star">Star</a>
+      <a id="gifts" href="#gifts">Gifts</a>
+      <a id="lights" href="#lights">Lights</a>
       <!-- <a href="#wreath">Wreath</a> -->
-      <a href="#tree">Tree</a>
-      <a href="#santa">Santa</a>
+      <a id="tree" href="#tree">Tree</a>
+      <a id="santa" href="#santa">Santa</a>
     </nav>
     <script type="module" src="/src/main.ts"></script>
   </body>
