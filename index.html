@@ -19,24 +19,25 @@
         position: fixed;
         right: 0;
         top: 2rem;
-      }
-      a {
-        background-color: transparent;
-        color: oklab(73.898% 0.02997 -0.13552);
-        outline: none;
-        padding: 0.25rem 1.75rem;
-        text-decoration: none;
-        transition: background-color 0.3s;
-        
-        &:hover {
-          background-color: #0006;
-        }
-        &:focus, &:focus-visible {
-          background-color: #0009;
-          outline-color: #fff3;
-        }
-        &:target {
-          color: #00ffb2aa;
+
+        a {
+          background-color: transparent;
+          color: oklab(73.898% 0.02997 -0.13552);
+          outline: none;
+          padding: 0.25rem 1.75rem;
+          text-decoration: none;
+          transition: background-color 0.3s;
+
+          &:hover {
+            background-color: #0006;
+          }
+          &:focus, &:focus-visible {
+            background-color: #0009;
+            outline-color: #fff3;
+          }
+          &:target {
+            color: #00ffb2aa;
+          }
         }
       }
       .lil-gui.lil-root { right: 450px; }
@@ -53,6 +54,24 @@
       <a id="tree" href="#tree">Tree</a>
       <a id="santa" href="#santa">Santa</a>
     </nav>
+    <div>
+      <section>
+        <h2>Nativity</h2>
+        <p>
+          Nativities are direct representations of the birth narratives found in the Gospels of Matthew &amp; Luke.
+          Nativities were non-verbal depictions intended to make the Scripture accessible &amp; inspire devotion among the laity (illiterate).
+        </p>
+        <p>
+          Francis of Assisi's 1223 Greccio celebration is the first key reference for live tableaux.
+          <a href="https://www.catholicnewsagency.com/news/253123/st-francis-and-the-story-of-the-first-nativity-scene" target="_blank">
+            Read more about Francis &amp; the first Nativity Scene
+          </a>
+        </p>
+        <p>
+          Hand-crafted Nativity sets evolved into common household devotionals in Catholic Europe.
+        </p>
+      </section>
+    </div>
     <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
