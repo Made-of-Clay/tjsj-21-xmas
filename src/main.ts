@@ -54,12 +54,40 @@ tree.loadModel().then(() => {
     if (!tree.instance) return;
     // maybe update some loader util for UI updates
     console.log(tree.instance);
+    assignShotsFromChildren(tree);
     scene.add(tree.instance);
 });
 
 addNavListeners();
 
-bindShots(camera.instance, undefined, {}, gsap);
+const shots = {
+    nativity: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+    star: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+    gifts: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+    lights: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+    tree: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+    santa: { position: [2, 5, 5.25], lookAt: [0, 0, 0] },
+};
+// FIXME *something* is happening but not working yet
+function assignShotsFromChildren(treeModel: Tree) {
+    console.log('assignShotsFromChildren()');
+    /** key = child.name (of object/mesh); value = shot name */
+    const shotMapping = {
+        Wood_Nativity_Ornament: 'nativity',
+        Star: 'star',
+        Cone007: 'gifts', // trying bottom tree cone to aim roughly at center of gifts
+        Trunk: 'lights', // trying Trunk to aim at center of lights/tree
+        Cone002: 'tree',
+        Sleigh: 'santa',
+    } as const;
+    treeModel.instance?.traverse((child) => {
+        if (!(child.name in shotMapping)) return;
+        const shotName = shotMapping[child.name as keyof typeof shotMapping];
+        if (!shotName) return console.warn(`No shot found for child name: ${child.name}`);
+        shots[shotName].position = [child.position.x, child.position.y, child.position.z];
+    });
+}
+bindShots(camera.instance, undefined, shots, gsap);
 
 // ===== 📈 STATS & CLOCK =====
 const stats = new Stats();
