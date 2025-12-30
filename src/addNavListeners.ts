@@ -29,12 +29,18 @@ function navToNext() {
 const prevKeys = ['ArrowLeft', 'ArrowUp', 'a', 'w'];
 const nextKeys = ['ArrowRight', 'ArrowDown', 'd', 's'];
 
+function scrollToHashSection() {
+    if (location.hash.substring(1)) {
+        const shot = location.hash.substring(1);
+        document.querySelector(`[data-shot="${shot}"`)?.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 export function addNavListeners() {
-    window.addEventListener('hashchange', () => {
-        const currentLink = document.querySelector(`[href="${location.hash}"]`);
-        // TODO focus appropriate section
-        console.log(currentLink, location.hash)
-    });
+    // Initial scroll
+    scrollToHashSection();
+    
+    window.addEventListener('hashchange', scrollToHashSection);
 
     window.addEventListener('keyup', (event) => {
         if (prevKeys.includes(event.key)) {

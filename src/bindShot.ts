@@ -14,26 +14,26 @@ export interface ShotMap {
     lookAt: number[]
 }
 
-/** this is a helper
+/**
  * @param {THREE.PerspectiveCamera} camera
- * @param {Record<string, ShotMap>} shots
- * @param {GSAP} [gsap] Optional GSAP instance
+ * @param {Record<string, ShotMap>} shots ShotMap { position: number[]; lookAt: number[] }
+ * @param {GSAP} [gsapInst] Optional GSAP instance
  */
 export function bindShots(
     camera: PerspectiveCamera,
     _orbitControls: OrbitControls | null = null,
     shots: Record<string, ShotMap>,
-    gsap: GSAP | null = null,
+    gsapInst: GSAP | undefined = gsap,
 ) {
     if (!camera) throw new ReferenceError('No camera provided');
     if (!shots) throw new ReferenceError('No shots provided');
-    gsap = gsap;
-    if (!gsap) throw new ReferenceError('GSAP not found');
+    gsapInst = gsapInst ?? gsap;
+    if (!gsapInst) throw new ReferenceError('GSAP not found');
 
     const sections = document.querySelectorAll('[data-shot]');
     if (!sections.length) return console.log('No [data-shot] elements found');
 
-    const anim = { duration: 1.2, ease: 'ease-in-out' };
+    const anim = { duration: 3, ease: 'ease-in-out' };
 
     const getQuat = (pos: ShotMap['position'], look: ShotMap['lookAt']) => {
         const tempCam = new PerspectiveCamera();
@@ -47,8 +47,8 @@ export function bindShots(
         const { position, lookAt } = shot;
         const q = getQuat(position, lookAt);
         const posObj = { x: position[0], y: position[1], z: position[2] };
-        gsap.to(camera.position, { ...posObj, ...anim });
-        gsap.to(camera.quaternion, {
+        gsapInst.to(camera.position, { ...posObj, ...anim });
+        gsapInst.to(camera.quaternion, {
             x: q.x,
             y: q.y,
             z: q.z,
