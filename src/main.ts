@@ -13,7 +13,7 @@ import { ProjectCamera } from './ProjectCamera';
 import { addNavListeners } from './addNavListeners';
 import { Tree } from './Tree';
 import { HDRLoader } from 'three/examples/jsm/Addons.js';
-import { getLoadingManager } from './getLoadingManager';
+import { getLoadingManager, setProgressLoader } from './getLoadingManager';
 import { getGui } from './getGui';
 import { gsap } from 'gsap';
 import { bindShots } from './bindShot';
@@ -27,6 +27,11 @@ renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 const scene = getScene();
+
+setProgressLoader((_url, loaded, total) => {
+    const percent = (loaded / total) * 100;
+    console.log(`Loading asset: ${percent.toFixed(2)}%`);
+});
 
 const gui = getGui();
 
