@@ -6,45 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Three.js Journey Challenge #21 - Christmas</title>
     <style>
-      /* TODO migrate styles to style.css once loading overlay is working */
-      nav {
-        background-color: #00000066;
-        box-shadow: 0 0 1rem #00ffb2aa inset;
-        border-radius: 0.5rem 0 0 0.5rem;
-        display: flex;
-        flex-direction: column;
-        font-size: 2rem;
-        line-height: 1.5;
-        padding: 0.25rem 0;
+      *, *::before, *::after {
+        box-sizing: border-box;
+      }
+      #overlay {
         position: fixed;
-        right: 0;
-        top: 2rem;
-        z-index: 1;
+        height: 100vh;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 1rem;
+        background: black;
+        color: white;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        opacity: 1;
+        transition: opacity 3s ease;
+        padding: 1rem 10vw;
 
-        a {
-          background-color: transparent;
-          color: oklab(73.898% 0.02997 -0.13552);
-          outline: none;
-          padding: 0.25rem 1.75rem;
-          text-decoration: none;
-          transition: background-color 0.3s;
-
-          &:hover {
-            background-color: #0006;
-          }
-          &:focus, &:focus-visible {
-            background-color: #0009;
-            outline-color: #fff3;
-          }
-          &:target {
-            color: #00ffb2aa;
-          }
+        &[data-entered] {
+          opacity: 0;
         }
       }
-      .lil-gui.lil-root { right: 450px; }
+      #progress {
+        opacity: 1;
+        transition: opacity 1s ease;
+
+        [data-loaded] & {
+          opacity: 0;
+        }
+
+        &::after {
+          content: '%';
+        }
+      }
+      #enter {
+        opacity: 0;
+        transition: opacity 1s ease;
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+        margin-top: 1rem;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 0.5rem;
+        background: transparent;
+        color: white;
+
+        [data-loaded] & {
+          opacity: 1;
+        }
+      }
     </style>
   </head>
-  <body>
+  <body data-percent="0">
     <nav>
       <a id="tree" href="#tree">Tree</a>
       <a id="nativity" href="#nativity">Nativity</a>
@@ -55,6 +72,7 @@
       <!-- <a href="#wreath">Wreath</a> -->
       <a id="santa" href="#santa">Santa</a>
     </nav>
+
     <article>
       <section data-shot="tree">
         <h2>Tree</h2>
@@ -135,6 +153,16 @@
         </p>
       </section>
     </article>
+
+    <div id="overlay">
+      <h1>Three.js Journey Challenge #21: Christmas</h1>
+      <div>
+        <p>Come explore some symbols of Christmas and their origins!</p>
+        <p>It's important to remember the "Why?" behind our traditions. As they become more ubiquitous, we risk losing sight of their deeper meaning. Understanding the "Why?" helps strengthen appreciation and spark reflection.</p>
+      </div>
+      <output id="progress">0</output>
+      <button id="enter">Enter 🎄</button>
+    </div>
 
     <script type="module" src="/src/main.ts"></script>
   </body>

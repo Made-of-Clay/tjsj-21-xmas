@@ -33,7 +33,7 @@ export function bindShots(
     const sections = document.querySelectorAll('[data-shot]');
     if (!sections.length) return console.log('No [data-shot] elements found');
 
-    const anim = { duration: 3, ease: 'ease-in-out' };
+    const anim = { duration: 3, ease: 'power2.inOut', };
 
     const getQuat = (pos: ShotMap['position'], look: ShotMap['lookAt']) => {
         const tempCam = new PerspectiveCamera();

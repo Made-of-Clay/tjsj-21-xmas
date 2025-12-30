@@ -28,9 +28,24 @@ renderer.shadowMap.enabled = true;
 renderer.shadowMap.type = PCFSoftShadowMap;
 const scene = getScene();
 
+const overlayEl = document.getElementById('overlay');
+const progressEl = document.getElementById('progress');
+if (!overlayEl) throw new Error('Overlay element not found');
+if (!progressEl) throw new Error('Progress element not found');
+
+document.getElementById('enter')?.addEventListener('click', () => {
+    overlayEl.setAttribute('data-entered', '');
+    setTimeout(() => overlayEl.style.display = 'none', 3000);
+});
+
 setProgressLoader((_url, loaded, total) => {
     const percent = (loaded / total) * 100;
-    console.log(`Loading asset: ${percent.toFixed(2)}%`);
+    progressEl.innerText = `${Math.round(percent)}`;
+    if (loaded === total) {
+        setTimeout(() => {
+            overlayEl.setAttribute('data-loaded', '');
+        }, 1000);
+    }
 });
 
 const gui = getGui();
