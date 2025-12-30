@@ -4,7 +4,7 @@ function navToPrevious() {
     if (currentLink?.previousElementSibling instanceof HTMLAnchorElement) {
         currentLink = currentLink.previousElementSibling;
     } else {
-        currentLink = document.querySelector<HTMLAnchorElement>('nav a:first-of-type');
+        currentLink = document.querySelector<HTMLAnchorElement>('nav a:last-of-type');
         console.log('currentLink', currentLink);
     }
     if (!currentLink) {
@@ -18,7 +18,7 @@ function navToNext() {
     if (currentLink?.nextElementSibling instanceof HTMLAnchorElement) {
         currentLink = currentLink.nextElementSibling;
     } else {
-        currentLink = document.querySelector<HTMLAnchorElement>('nav a:last-of-type');
+        currentLink = document.querySelector<HTMLAnchorElement>('nav a:first-of-type');
     }
     if (!currentLink) {
         return console.warn('Could not find a link for', location.hash, ' or next link');
