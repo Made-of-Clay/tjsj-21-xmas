@@ -12,7 +12,7 @@ export function addLights() {
     lightsFolder.add(ambientLight, 'visible').name('Ambient Light');
 
     const pointLight = new PointLight('white', 25, 100);
-    pointLight.position.set(4, 10, 4);
+    pointLight.position.set(4, 10, 1.5);
     pointLight.castShadow = true;
     pointLight.shadow.radius = 4;
     pointLight.shadow.camera.near = 0.1;
