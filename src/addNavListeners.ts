@@ -11,6 +11,7 @@ function navToPrevious() {
         return console.warn('Could not find a link for', location.hash, ' or previous link');
     }
     currentLink.click();
+    scrollToHashSection();
 }
 
 function navToNext() {
@@ -24,6 +25,7 @@ function navToNext() {
         return console.warn('Could not find a link for', location.hash, ' or next link');
     }
     currentLink.click();
+    scrollToHashSection();
 }
 
 const prevKeys = ['ArrowLeft', 'ArrowUp', 'a', 'w'];
@@ -39,8 +41,13 @@ function scrollToHashSection() {
 export function addNavListeners() {
     // Initial scroll
     scrollToHashSection();
-    
-    window.addEventListener('hashchange', scrollToHashSection);
+
+    document.querySelector('nav')?.addEventListener('click', async (event) => {
+        await new Promise((resolve) => setTimeout(resolve, 100)); // wait for hash to update
+        const target = event.target as HTMLAnchorElement;
+        if (target.tagName !== 'A') return;
+        scrollToHashSection();
+    });
 
     window.addEventListener('keyup', (event) => {
         if (prevKeys.includes(event.key)) {

@@ -15,7 +15,6 @@ import { Tree } from './Tree';
 import { HDRLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager, setProgressLoader } from './getLoadingManager';
 import { getGui } from './getGui';
-import { gsap } from 'gsap';
 import { bindShots } from './bindShot';
 
 const isDebugMode = location.search === '?debug';
@@ -88,7 +87,11 @@ const shots = {
     santa: { position: [2, 6, -1.5], lookAt: [1, 0, -5] },
 };
 
-bindShots(camera.instance, undefined, shots, gsap);
+bindShots(camera.instance, undefined, shots, (name: string) => {
+    if (name) {
+        location.hash = `#${name}`;
+    }
+});
 
 // ===== 📈 STATS & CLOCK =====
 let stats: Stats | undefined;

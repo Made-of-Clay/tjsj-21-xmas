@@ -17,12 +17,14 @@ export interface ShotMap {
 /**
  * @param {THREE.PerspectiveCamera} camera
  * @param {Record<string, ShotMap>} shots ShotMap { position: number[]; lookAt: number[] }
+ * @param {(name: string) => void} [observing] Optional callback when a shot is observed
  * @param {GSAP} [gsapInst] Optional GSAP instance
  */
 export function bindShots(
     camera: PerspectiveCamera,
     _orbitControls: OrbitControls | null = null,
     shots: Record<string, ShotMap>,
+    observing: (name: string) => void = () => {},
     gsapInst: GSAP | undefined = gsap,
 ) {
     if (!camera) throw new ReferenceError('No camera provided');
@@ -64,6 +66,7 @@ export function bindShots(
                 const name = e.target.getAttribute('data-shot') || '';
                 const shot = shots[name];
                 if (shot) moveCamera(shot);
+                typeof observing === 'function' && observing(name);
             }
         }),
         { threshold: 0.5 },
