@@ -16,6 +16,7 @@ import { HDRLoader } from 'three/examples/jsm/Addons.js';
 import { getLoadingManager, setProgressLoader } from './getLoadingManager';
 import { getGui } from './getGui';
 import { bindShots } from './bindShot';
+import { SnowEffect } from './addSnow';
 
 const isDebugMode = location.search === '?debug';
 
@@ -76,6 +77,9 @@ tree.loadModel().then(() => {
     scene.add(tree.instance);
 });
 
+const snow = new SnowEffect();
+scene.add(snow.snowflakes);
+
 addNavListeners();
 
 const shots = {
@@ -113,6 +117,7 @@ function tick() {
     const elapsedTime = timer.getElapsed();
     const deltaTime = elapsedTime - previousTime;
     tree.animate(deltaTime);
+    snow.animate(deltaTime);
 
     camera.tick(renderer);
 
