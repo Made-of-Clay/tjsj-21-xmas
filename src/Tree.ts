@@ -44,7 +44,6 @@ export class Tree {
                 child.castShadow = true;
             }
             if (child.name === 'Sleigh_Mesh') {
-                console.log(child)
                 child.castShadow = true;
             }
         });
